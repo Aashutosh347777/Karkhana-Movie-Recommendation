@@ -1,0 +1,10 @@
+numpy
+pandas
+fastapi
+uvicorn
+pydantic
+streamlit
+scikit-learn
+nltk
+matplotlib
+jupyter

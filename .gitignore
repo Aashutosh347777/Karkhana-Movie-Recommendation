@@ -1,2 +1,7 @@
+<<<<<<< HEAD
+env_mov_recommendation/
+=======
 env_mov_recommendation/
 .venv/
+>>>>>>> f1189c1cbca5add810dc1e79a2bc2d49c937daea
+.env

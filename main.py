@@ -28,13 +28,25 @@ def get_poster_url(movie_id):
 st.set_page_config(page_title="Movie Recommender", layout="wide")
 
 @st.cache_data(ttl=3600)
+# In main.py, replace the fetch_movie_list function with this:
+
+@st.cache_data(ttl=3600)
 def fetch_movie_list():
     try:
-        response = requests.get(MOVIES_ENDPOINT)
+        response = requests.get(MOVIES_ENDPOINT, timeout=10)
+        
+        if response.status_code == 429:
+            st.warning("Traffic high. Showing limited offline data.")
+            return [] # Return empty to stop the crash loop
+            
         response.raise_for_status()
         return response.json()
+        
+    except requests.exceptions.ConnectionError:
+        st.error("Backend is waking up (Free Tier). Please refresh in 30s.")
+        return []
     except Exception as e:
-        st.error(f"Could not connect to backend at {FASTAPI_BASE_URL}. Error: {e}")
+        st.error(f"Error: {e}")
         return []
 
 @st.cache_data(ttl=300)

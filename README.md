@@ -1,18 +1,26 @@
-# Movie Recommendation Project
+# Movie Recommendation Project CI/CD
+Built following the industry practices of CI/CD a movie recommeder system, with streamlit Frontend and FastAPI backend.
 
 ## Setup
-first ma 
 ```bash
 git clone https://github.com/Aashutosh347777/Karkhana-Movie-Recommendation.git
 ```
-gara <br>
 
-second ma
 ```bash
 python -m venv env_mov_recommendation
 ```
 
-ani last ma
 ```bash
 pip install -r requirements.txt
 ```
+
+## Running the system
+```bash
+cd fast_api/
+uvicorn main:app --reload
+```
+```bash
+streamlit run main.py
+```
+<br>
+while running steramlit make sure in the root directory
